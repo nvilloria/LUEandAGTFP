@@ -1,0 +1,15 @@
+Package: LUEandAGTFP
+Title: Land Use Greenhouse Gas Emissions from Changes in Agricultural Total Factor Productivity
+Version: 0.0.0.9000
+Authors@R: 
+    person("David", "Lobell", "dlobell@stanford.edu", role = c("aut"),
+           comment = c(ORCID = 0000-0002-5969-3476"))
+    person("Nelson", "Villoria", "nvillori@ksu.edu", role = c("aut", "cre"),
+           comment = c(ORCID = 0000-0003-1929-0725"))
+Description: A companion to Lobell David B. and Nelson B. Villoria (2022) article tentatively titled "Accounting for land use spillovers can greatly reduce the benefits of some climate-smart agricultural policies" and still in progress. The functions combine estimates of links between total factor productivity (TFP) and cropland use in each country [from Villoria AJAE]] with estimates of carbon emissions for cropland expansion [From Roe et al.] to define TFP-emission links for each pair of countries. These estimates are then used to calculate the net impact of potential TFP changes on both domestic and global emissions.
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+URL:  https://github.com/nvilloria/LUGHGandAGTFP/
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
