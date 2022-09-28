@@ -1,5 +1,5 @@
 ---
-title: "Brief tutorial to obtain domestic and foreign emissions"
+title: "Brief tutorial to obtain domestic and foreign land use emissions from changes in domestic TFP"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{brief_tutorial}
