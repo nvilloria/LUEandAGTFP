@@ -1,0 +1,19 @@
+---
+title: "Brief tutorial to obtain domestic and foreign emissions"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{brief_tutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(LUEandAGTFP)
+```
