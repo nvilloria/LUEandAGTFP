@@ -1,5 +1,5 @@
 ---
-title: "Brief tutorial to obtain domestic and foreign land use emissions from changes in domestic TFP"
+title: "Quick guide to obtain domestic and foreign land use emissions from changes in domestic TFP"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{brief_tutorial}
@@ -13,7 +13,67 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
-
+The function `get.responses()` does all the work. For instance, to get the  effects on cropland area and emissions of all the countries in the sample stemming from an increase of 3\% in TFP in Brazil, use:
 ```{r setup}
 library(LUEandAGTFP)
+brazil.effects <- get.responses(ctry="bra", tfp.shock =  1)
+head(brazil.effects)
+```
+By default, `get.responses()` uses the point estimates of the cropland elasticities to changes in TFP use. The option `boot=TRUE` will estimate 10,000 replicates of each elasticity using bootstrapped parameter estimates as explained in the paper. The syntax is:
+```{r}
+brazil.effects.boot <- get.responses(ctry="bra", tfp.shock =  1, boot = TRUE)
+head(brazil.effects.boot)
+```
+Notice the addition of the variable `boot` which keeps track of the bootstrap replicate. The user can deploy standard `R` code to estimate the uncertainty of any of the output variables (`perc.change.crop.area`, `change.crops_ha`, `emissions_GtCO2`) derived from parameter uncertainty. For instance:
+```{r}
+alpha <- 0.10
+bra.emission.ci <- aggregate(emissions_GtCO2 ~ k,
+                           brazil.effects.boot,
+                           function(x) quantile(x,
+                                                probs=c( alpha/2,0.5,(1-alpha/2)),
+                                                names = TRUE))
+head(bra.emission.ci)
+```
+gives the quantile-based 90\% confidence interval for the effect of TFP growth in Brazil on each country in the sample, including Brazil itself:
+```{r}
+bra.emission.ci[bra.emission.ci$k =="bra",]
+```
+
+Other manipulations are possible, for instance, the global effect of a 1\% TFP in Brazil's ag. on worldwide emissions (excluding Brazil) can be calculated as:
+```{r}
+## Sum over countries within each bootstrap replicate:
+global.effects.brazil <- aggregate( emissions_GtCO2 ~ boot,
+                                   brazil.effects.boot[brazil.effects.boot$k != 'bra'],
+                                   FUN = 'sum')
+## Get quantile=based 90\% confidence intervals:
+quantile(global.effects.brazil$emissions_GtCO2,
+         probs=c( alpha/2,0.5,(1-alpha/2)),
+         names = TRUE)                                   
+```
+So, while the domestic effect of TFP growth in Brazil is
+statistically indistinguishable from zero, the foreign effects are
+expected to be negative.
+
+ The elasticities as well as the emission factors and cropland area are included with the package (type `?elasticities` and `?emission_data.ave` for documentation}. Few examples:
+ 
+Mexico's cropland is highly sensitive to technological progress in the US: 
+```{r}
+data(elasticities)
+## Percentage change in Mexico's cropland when TFP in the US grows by 1% (bilateral elasticity):
+with( elasticities, elasticities[i == "usa" & k == "mex",])
+```
+But the converse is not true:
+```{r}
+## Percentage change in US cropland when TFP in Mexico grows by 1% (bilateral elasticity)
+with( elasticities, elasticities[i == "mex" & k == "usa",])
+```
+Argentina is an example of a country where technological progress is expected to increase domestic cropland (so-called Jevons' paradox):
+```{r}
+## Percentage change in Argentina's cropland following a domestic
+## increase of TFP of 1% (domestic elasticity):
+with( elasticities, elasticities[i == "arg" & k == "arg",])
+```
+India on the other hand is an example of a country where TFP growth is land saving (the so-called Borlaug's hypothesis), at least using the point estimates:
+```{r}
+with( elasticities, elasticities[i == "ind" & k == "ind",])
 ```
