@@ -1,13 +1,13 @@
 #' Calculate changes in domestic and foreign cropland and emissions
 #' for a given percentage change in domestic agricultural TFP.
 #'
-#' This function Can be used with either the point-estimates or the
+#' This function can be used with either the point-estimates or the
 #' bootstrapped elasticities. The point estimates are documented in
-#' \link[LUEandAGTFP]{elasticities}. The bootstrapped elasticities
+#' \link[TFPtoCO2]{elasticities}. The bootstrapped elasticities
 #' (10,000 replicates) are calculated by the function
-#' \link[LUEandAGTFP]{bootstrap.elasticities}. The elasticities are
+#' \link[TFPtoCO2]{bootstrap.elasticities}. The elasticities are
 #' combined with data on agricultural land and emission factors,
-#' documented in \link[LUEandAGTFP]{emission_data.ave}.
+#' documented in \link[TFPtoCO2]{emission_data.ave}.
 #'
 #' @param ctry Country experiencing a change in TFP.
 #' @param tfp.shock % change in agricultural TFP.
@@ -73,7 +73,7 @@ get.responses <- function(ctry, tfp.shock = 1,
 #'     (origin of TFP change), k (trading partner or domestic market
 #'     when i = k), the elasticity e.ik---all with identical
 #'     descriptions to those in
-#'     \link[LUEandAGTFP]{emission_data.ave}---and 'boot', that
+#'     \link[TFPtoCO2]{emission_data.ave}---and 'boot', that
 #'     indexes the bootstrap replicates.
 #' @importFrom data.table rbindlist
 #' @export

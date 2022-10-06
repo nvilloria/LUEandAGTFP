@@ -24,11 +24,11 @@ country i. If boot = "yes", a field 'boot' is included for
 identifying the bootstrap replicates.
 }
 \description{
-This function Can be used with either the point-estimates or the
+This function can be used with either the point-estimates or the
 bootstrapped elasticities. The point estimates are documented in
-\link[LUEandAGTFP]{elasticities}. The bootstrapped elasticities
+\link[TFPtoCO2]{elasticities}. The bootstrapped elasticities
 (10,000 replicates) are calculated by the function
-\link[LUEandAGTFP]{bootstrap.elasticities}. The elasticities are
+\link[TFPtoCO2]{bootstrap.elasticities}. The elasticities are
 combined with data on agricultural land and emission factors,
-documented in \link[LUEandAGTFP]{emission_data.ave}.
+documented in \link[TFPtoCO2]{emission_data.ave}.
 }

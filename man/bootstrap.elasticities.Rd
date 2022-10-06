@@ -12,7 +12,7 @@ domestic and bilateral elasticities. There are four columns: i
 (origin of TFP change), k (trading partner or domestic market
 when i = k), the elasticity e.ik---all with identical
 descriptions to those in
-\link[LUEandAGTFP]{emission_data.ave}---and 'boot', that
+\link[TFPtoCO2]{emission_data.ave}---and 'boot', that
 indexes the bootstrap replicates.
 }
 \description{

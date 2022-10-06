@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 ```
 The function `get.responses()` does all the work. For instance, to get the  effects on cropland area and emissions of all the countries in the sample stemming from an increase of 5\% in TFP in Brazil, use:
 ```{r setup}
-library(LUEandAGTFP)
+library(TFPtoCO2)
 brazil.effects <- get.responses(ctry="bra", tfp.shock =  5)
 head(brazil.effects)
 ```
