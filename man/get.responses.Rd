@@ -5,7 +5,7 @@
 \title{Calculate changes in domestic and foreign cropland and emissions
 for a given percentage change in domestic agricultural TFP.}
 \usage{
-get.responses(ctry, tfp.shock = 1, boot = NULL)
+get.responses(ctry, tfp.shock = 1, boot = NULL, which.boot = "new")
 }
 \arguments{
 \item{ctry}{Country experiencing a change in TFP.}
@@ -14,6 +14,11 @@ get.responses(ctry, tfp.shock = 1, boot = NULL)
 
 \item{boot}{Set boot = TRUE for using bootstrapped elasticities,
 otherwise the point estimates are used.}
+
+\item{which.boot}{The dafault uses an optimized function for
+estimating the bootstrap replicates of changes in land use and
+emissions. If the default is changed, a slower version of
+'bootstrap.elasticities()' is used which is not recommended.}
 }
 \value{
 A dataframe with the domestic and foreign change in crop
