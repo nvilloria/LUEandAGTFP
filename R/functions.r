@@ -177,8 +177,8 @@ bootstrap.elasticities <- function(ctry){
         e.ik = c(m%*%t(n)),
         boot =sort(
             rep(
-                c(1:dim(m)[1]),
-                dim(n)[1]))
+                c(1:dim(n)[1]),
+                dim(m)[1]))
     )
     boot.elasticities <- rbindlist(l=list(boot.own , boot.bilateral) )
     return(boot.elasticities)
