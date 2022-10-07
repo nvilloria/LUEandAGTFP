@@ -74,12 +74,11 @@ get.responses <- function(ctry, tfp.shock = 1,
 #' This function is necessary because the dataframe storing the 10,000
 #' elasticities is too large (~700 MB) to be stored in GitHUB (max 100
 #' MB). The function calculates the bilateral elasticities for the
-#' country passed by the function \link[TFPtoCO2]{get.responses}. It
+#' country passed from the function \link[TFPtoCO2]{get.responses}. It
 #' uses the bootstrap regression parameters from wild cluster
-#' bootstrap using the function 'clusterSEs::cluster.wild.plm' (see
-#' ./programs/AJAE_replication//do.rev2.R). The bootstrapped
-#' parameters and the competition indices needed by the function are
-#' in the ./data folder.
+#' bootstrap using the function 'clusterSEs::cluster.wild.plm'. The
+#' bootstrapped parameters and the competition indices needed by the
+#' function are in the ./data folder.
 #'
 #' @param ctry Country experiencing a change in TFP.
 #' @return A dataframe with 10,000 replicates of the 86^2 = 7,396
@@ -130,15 +129,15 @@ bootstrap.elasticities.old <- function(ctry){
 
 #' Calculate 10,000 replicates of the entire set of bilateral elasticities
 #'
-#' This function is necessary because the dataframe storing the 10,000
-#' elasticities is too large (~700 MB) to be stored in GitHUB (max 100
-#' MB). The function calculates the bilateral elasticities for the
-#' country passed by the function \link[TFPtoCO2]{get.responses}. It
-#' uses the bootstrap regression parameters from wild cluster
-#' bootstrap using the function 'clusterSEs::cluster.wild.plm' (see
-#' ./programs/AJAE_replication//do.rev2.R). The bootstrapped
+#' The function calculates the 10,000 replicates of each bilateral
+#' elasticities of cropland change with respect to changes in TFP in a
+#' given country. The function is internally called by the function
+#' \link[TFPtoCO2]{get.responses}. The function relies in a stored
+#' dataset with 10,000 bootstrap replicates (wild cluster bootstrap
+#' using the function 'clusterSEs::cluster.wild.plm') of the
+#' regression parameters in Villoria (2019).  The bootstrapped
 #' parameters and the competition indices needed by the function are
-#' in the ./data folder.
+#' in the ./data folder and are distributed with the function.
 #'
 #' @param ctry Country experiencing a change in TFP.
 #' @return A dataframe with 10,000 replicates of the 86^2 = 7,396
@@ -148,6 +147,12 @@ bootstrap.elasticities.old <- function(ctry){
 #'     descriptions to those in
 #'     \link[TFPtoCO2]{emission_data.ave}---and 'boot', that
 #'     indexes the bootstrap replicates.
+#' @references Villoria, Nelson B. 2019. "Technology Spillovers and
+#'     Land Use Change: Empirical Evidence from Global Agriculture."
+#'     American Journal of Agricultural Economics 101 (3):
+#'     870–93. https://doi.org/10.1093/ajae/aay088.
+#' (\href{https://onlinelibrary.wiley.com/doi/full/10.1093/ajae/aay088
+#' }{link})
 #' @importFrom data.table rbindlist
 #' @export
 bootstrap.elasticities <- function(ctry){

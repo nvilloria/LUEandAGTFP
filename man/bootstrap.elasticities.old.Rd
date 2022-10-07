@@ -27,10 +27,9 @@ function 'bootstrap.elasticities()' is working well.
 This function is necessary because the dataframe storing the 10,000
 elasticities is too large (~700 MB) to be stored in GitHUB (max 100
 MB). The function calculates the bilateral elasticities for the
-country passed by the function \link[TFPtoCO2]{get.responses}. It
+country passed from the function \link[TFPtoCO2]{get.responses}. It
 uses the bootstrap regression parameters from wild cluster
-bootstrap using the function 'clusterSEs::cluster.wild.plm' (see
-./programs/AJAE_replication//do.rev2.R). The bootstrapped
-parameters and the competition indices needed by the function are
-in the ./data folder.
+bootstrap using the function 'clusterSEs::cluster.wild.plm'. The
+bootstrapped parameters and the competition indices needed by the
+function are in the ./data folder.
 }
