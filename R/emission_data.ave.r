@@ -20,15 +20,15 @@
 #'   \item{EF}{a country-level emission factor defined as the ratio of
 #'   total committed emissions ('Gt_CO2') for the 20-year period
 #'   starting in 1988 and ending in 2017 (the final year in Hong et
-#'   al.'s study period) and the total net change in cropland area
-#'   over the same period ('delcrops_ha'). Net changes in cropland
-#'   over 20 could underestimate gross expansion due to land
-#'   abandonment. This would inflate the emission factors by failing
-#'   to impute them to areas that were converted to agriculture in
-#'   some point but abandoned before 2017. To help alleviating this
+#'   al.'s study period) to the total net change in cropland area over
+#'   the same period ('delcrops_ha'). Net changes in cropland over 20
+#'   could underestimate gross expansion due to land abandonment. This
+#'   would inflate the emission factors by failing to impute them to
+#'   areas that were converted to agriculture in some point during
+#'   1988-2017, but abandoned before 2017. To help alleviating this
 #'   concern, for countries where total land abandonment during
-#'   2003-2019 was larger than total land expansion (see 'gainratio'
-#'   below, we impute a minimum value of 200 t CO2 ha-1, the average
+#'   2003-2019 was larger than total land expansion ('gainratio', see
+#'   below), we impute a minimum value of 200 t CO2 ha-1, the average
 #'   emissions for unit of land for conversion in temperate countries
 #'   (West et al. 2020). Furthermore, all EF are constrained to be
 #'   between 200 – 800 t CO2 ha-1 to avoid outliers.}
