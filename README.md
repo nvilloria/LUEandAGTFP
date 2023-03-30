@@ -1,6 +1,6 @@
 # TFPtoCO2:  Land Use Greenhouse Gas Emissions from Changes in Agricultural Total Factor Productivity
  
-R package used for the results in Lobell and Villoria (2023) "Accounting for land use spillovers can greatly reduce the benefits of some climate-smart agricultural policies." 
+R package used for the results in Lobell, David and Villoria, Nelson B. (2023) "Reduced benefits of climate-smart agricultural policies from land use spillovers." 
 
 ## Installation
 Install the R package from GitHub:
@@ -21,4 +21,4 @@ Run the following command for a quick guide to to obtaining domestic and foreign
 vignette("brief_tutorial")
 ```
 
-Please direct questions about this R package to [Nelson Villoria](mailto:nvilloria@ksu.edu).
+Please direct questions about this R package to [Nelson B. Villoria](mailto:nvilloria@ksu.edu).
