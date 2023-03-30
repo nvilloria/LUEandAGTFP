@@ -1,4 +1,4 @@
-# TFPtoCO2:  Land Use Greenhouse Gas Emissions from Changes in Agricultural Total Factor Productivity.
+# TFPtoCO2:  Land Use Greenhouse Gas Emissions from Changes in Agricultural Total Factor Productivity
  
 R package used for the results in Lobell and Villoria (2023) "Accounting for land use spillovers can greatly reduce the benefits of some climate-smart agricultural policies." 
 
